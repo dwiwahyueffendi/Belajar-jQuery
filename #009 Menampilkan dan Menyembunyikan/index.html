@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belajar JQuery</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Belajar JQuery">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Dwi Wahyu Effendi">
+        <style>
+            .change{
+                color:cornsilk;
+                background-color: chartreuse;
+            }
+            #boxes-wrap{
+                background: gray;
+                width: 100px;
+                height: 100px;
+                padding: 10px;
+                border: 5px solid black;
+                margin: 10px;
+            }
+            #box2{
+                background: gray;
+                width: 100px;
+                height: 100px;
+                padding: 10px;
+                border: 5px solid black;
+                margin: 10px;
+            }
+            body{
+                font-family: Verdana, sans-serif;
+                font-size: 12px;
+            }
+            footer{
+                border:1px solid gray;
+                margin:5px;
+                padding:5px;
+                clear: both;
+            }
+        </style>
+        <!-- Harus terkoneksi internet / online
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>></script>           
+        -->
+        <script src="JQuery.js"></script>
+    </head>
+
+    <body>
+        <h1 class="change">Belajar JQuery</h1>
+
+        <div id="box1">Box 1</div>
+        <div id='boxes-wrap'>
+            <div class="boxes">Baris Pertama</div>
+            <div class="boxes">Baris Kedua</div>
+            <div class="boxes">Baris Ketiga</div>
+            <div class="boxes">Baris Keempat</div>
+        </div>
+
+        <form>
+            <input type="text" id="inputText">
+            <input type="submit" id="submit">
+        </form>
+
+        <div id="box2">BOX 2</div>
+        <button id="btn1">Show</button>
+        <button id="btn2">Hide</button>
+        <button id="btn3">Toggle</button>
+
+        <script>
+            $(document).ready(function(){
+                //$('h1').css('color','red');
+                $('#box1').css('color','blue');
+                $('.boxes').css('color','green');
+                
+                $('.boxes:first').css('color','yellow');
+                $('.boxes:eq(2)').css('color','aqua');
+                $('.boxes:last').css('color','black');
+
+                //----------EVENT-----------
+                /*$('h1').click(function(){   //click
+                    $('h1').css('color','purple');
+                });
+                $('h1').mouseenter(function(){   //mouseenter
+                    $('h1').css('color','purple');
+                });
+                $('h1').mouseleave(function(){   //mouseleave
+                    $('h1').css('color','red');
+                });
+
+                $('.boxes').click(function(){
+                    //$('h1').css('color','purple');
+                    //$('.boxes').css('color','purple');
+                    $(this).css('color','purple');
+                });*/
+
+                //--------------Get dan Set Nilai--------------
+                $('form').submit(function(){
+                    //alert($('#inputText').val());
+                    var tulisan = $('#inputText').val();
+                    //$('h1').text();     //Get Nilai
+                    //$('h1').text('Selamat datang');   //Set Nilai / Mengubah Nilai h1
+                    //$('#inputText').val();    //Get Nilai di id='inputText'
+                    //$('#inputText').val('Selamat cuy');   //Set Nilai di id='inputText'
+                    $('h1').text(tulisan);
+
+                    //Mencegah sifat
+                    event.preventDefault();
+
+                    /* Run di console
+                    $('form').html();
+                    $('#boxes-wrap').html();
+                    $('#boxes-wrap').html("<b>Hello Everyone</b>");
+                    */
+                });
+
+                //------------------Menambah dan Menghapus Elemen----------------
+                //append prepend | after before
+                /*$('#boxes-wrap').append("<div>Hello1</div>")  //Dalam Bawah
+                $('#boxes-wrap').prepend("<div>Hello2</div>")   //Dalam Atas
+                $('#boxes-wrap').after("<div>Hello3</div>")     //Luar Bawah
+                $('#boxes-wrap').before("<div>Hello4</div>")*/  //Luar Atas
+
+                //remove | empty
+                //$('#boxes-wrap').remove();    //Menghapus
+                //$('#boxes-wrap').empty();     //Mengkosongkan
+
+                //----------CSS di JQuery-------------
+                $('h1').click(function(){   //click
+                    //Membuat banyak atribut css
+                    /*$('h1').css({
+                        'color':'purple',
+                        'fontSize':'20px',
+                        'backgroundColor':'yellow'
+                    });*/
+
+                    //$('h1').addClass('change');   //Menambahkan Class
+                    //$('h1').removeClass('change');    //Menghapus Class
+                    $('h1').toggleClass('change');  //Menambahkan dan Menghapus Class
+                });
+
+                //------------Mengambil Nilai Dimensi-------------
+                /*
+                width       -> konten
+                innerwidth  -> konten + padding
+                outerwidth  -> konten + padding + border
+                (true)      -> konten + padding + border + margin*/
+
+                /*var nilai = $('#boxes-wrap').width();
+                var nilai = $('#boxes-wrap').innerWidth();
+                var nilai = $('#boxes-wrap').outerWidth();
+                var nilai = $('#boxes-wrap').outerWidth(true);
+                $('#box1').text(nilai);
+                */
+
+                //----------Mengubah Nilai Dimensi------------
+                $('#boxes-wrap').width(150).height(150);
+                //$('#boxes-wrap').outerWidth(400);
+
+                //--------Menampilkan dan Menyembunyikan----------
+                //hide show toggle
+                /*$('#btn1').click(function(){
+                    $('#box2').show();
+                })
+                $('#btn2').click(function(){
+                    $('#box2').hide();
+                })
+                $('#btn3').click(function(){
+                    $('#box2').toggle();
+                })*/
+
+                //fadeIn fadeOut fadeTo(time, opacity) fadeToogle
+                $('#btn1').click(function(){
+                    $('#box2').fadeIn(3000);
+                })
+                $('#btn2').click(function(){
+                    $('#box2').fadeOut(3000);
+                })
+                $('#btn3').click(function(){
+                    //$('#box2').fadeToggle(3000);
+                    $('#box2').fadeTo(2000, 0.5)
+                })
+                //slideDown slideUp slideToggle       
+            });
+        </script>
+
+        <footer>
+            <p>&copy; 2020 Dwi Wahyu Effendi</p>
+        </footer>
+    </body>
+</html>
