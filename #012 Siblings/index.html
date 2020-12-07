@@ -70,7 +70,10 @@
             <li>HTML</li>
             <li>CSS</li>
             <li id="js">JavaScript</li>
-            <li>Database</li>
+            <li>PHP</li>
+            <li>JQUERY</li>
+            <li>VUE</li>
+            <li id="db">Database</li>
         </ul>
 
         <script>
@@ -217,12 +220,20 @@
                 })
 
                 //-----Traversing Basic------
-                $('li').first().css('color', 'red');
+                /*$('li').first().css('color', 'red');
                 $('li').eq(1).css('color', 'green');
                 $('li').last().css('color', 'blue');
 
                 $('li').filter('#js').css('fontSize', '25px');
-                $('li').not('#js').css('background', 'grey');
+                $('li').not('#js').css('background', 'grey');*/
+
+                //--------Siblings Next NextAll NextUntil Prev--------
+                $('#js').siblings().css('fontSize', '25px');
+                //$('#js').next().css('color', 'red');
+                //$('#js').nextAll().css('color', 'yellow');
+                $('#js').nextUntil('#db').css('color', 'yellow');
+                $('#js').prev().css('color', 'red');
+
             });
         </script>
 
