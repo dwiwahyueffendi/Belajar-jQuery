@@ -168,7 +168,7 @@
                 })*/
 
                 //fadeIn fadeOut fadeTo(time, opacity) fadeToogle
-                $('#btn1').click(function(){
+                /*$('#btn1').click(function(){
                     $('#box2').fadeIn(3000);
                 })
                 $('#btn2').click(function(){
@@ -176,9 +176,20 @@
                 })
                 $('#btn3').click(function(){
                     //$('#box2').fadeToggle(3000);
-                    $('#box2').fadeTo(2000, 0.5)
+                    $('#box2').fadeTo(1000, 0.5);
+                })*/
+
+                //slideDown slideUp slideToggle     
+                $('#btn1').click(function(){
+                    $('#box2').slideDown(1000);
                 })
-                //slideDown slideUp slideToggle       
+                $('#btn2').click(function(){
+                    $('#box2').slideUp(1000);
+                })
+                $('#btn3').click(function(){
+                    //$('#box2').fadeToggle(3000);
+                    $('#box2').slideToggle(1000);
+                })  
             });
         </script>
 
