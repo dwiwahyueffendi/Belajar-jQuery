@@ -1,11 +1,10 @@
 $(document).ready(function(){
 
     function slide(num){
-        /*if( $('.container').css('marginLeft') == '-1600px')
+        if( $('.container').css('marginLeft') == '-1600px')
             $('.container').css('marginLeft', '0px');
         else
-            $('.container').animate({marginLeft: num})*/
-        $('.container').animate({marginLeft: num});
+            $('.container').animate({marginLeft: num})
     }
     
     var autoSlide = setInterval(function(){
@@ -18,7 +17,12 @@ $(document).ready(function(){
     });
 
     $('#prev').click(function(){
-        slide('+=400px');
-        clearInterval(autoSlide);
+        /*slide('+=400px');
+        clearInterval(autoSlide);*/
+        if( $('.container').css('marginLeft') == '0px')
+            $('.container').css('marginLeft', '-1200px');
+        else
+            slide('+=400px');
+            
     });
 });
